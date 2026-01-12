@@ -2,5 +2,5 @@ pyrofork
 tgcrypto
 motor
 Flask
-gunicorn
 psutil
+pyromod  <-- Ye zaroori hai
