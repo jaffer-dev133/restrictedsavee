@@ -1,6 +1,7 @@
 # Don't Remove Credit Tg - @VJ_Bots
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
 
+import pyromod # <--- YE SABSE ZAROORI HAI: Iske bina login/logout work nahi karega
 import asyncio
 from pyrogram import Client
 from config import API_ID, API_HASH, BOT_TOKEN, STRING_SESSION, LOGIN_SYSTEM
@@ -43,9 +44,11 @@ class Bot(Client):
         print('Bot Stopped Bye')
 
 if __name__ == "__main__":
-    # 1. Flask server ko alag thread mein start karein
+    # 1. Flask server ko alag thread mein start karein (Render Health Check ke liye)
     print("Starting Web Server on Port 8080...")
-    Thread(target=run_web).start()
+    t = Thread(target=run_web)
+    t.daemon = True
+    t.start()
     
     # 2. Pyrogram Bot ko start karein
     bot = Bot()
